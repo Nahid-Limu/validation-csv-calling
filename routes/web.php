@@ -44,5 +44,6 @@ Route::post('/order', 'OrderController@UplodeCsv')->name('UplodeCsv');
 //StoreInformationRegistration
 
 // export csv
-Route::get('/exportCsvExcel','ExportController@exportCsvExcel')->name('exportCsvExcel');
+Route::get('/data','ExportController@data')->name('data');
+Route::get('/exportCsvExcel/{type}','ExportController@exportCsvExcel')->name('exportCsvExcel');
 // export csv

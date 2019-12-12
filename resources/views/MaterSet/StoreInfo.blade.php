@@ -542,10 +542,12 @@
                                                         <a class="btn btn-info ">検索</a>
                                                     <td>
                                                     </td>
-                                                    <td><a class="btn btn-info">CSV作成</a> </td>
+                                                    <td><a class="btn btn-info"
+                                                            href="{{route('exportCsvExcel', ['type'=>'csv'])}}">CSV作成</a> </td>
                                                     <td>
                                                     </td>
-                                                    <td><a class="btn btn-info">EXCEL作成</a> </td>
+                                                    <td><a class="btn btn-info"
+                                                            href="{{route('exportCsvExcel', ['type'=>'xlsx'])}}">EXCEL作成</a> </td>
                                                     <td>
                                                     </td>
                                                     <td class="">

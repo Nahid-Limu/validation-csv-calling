@@ -9,9 +9,10 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class ExportController extends Controller
 {
-    public function exportCsvExcel ()
+
+    public function exportCsvExcel ($type)
     {
-        // return 'okk';
+  		// dd($type);
         $header = [
             0 => 'Name',
             1 => 'NickName',
@@ -33,7 +34,14 @@ class ExportController extends Controller
 		            ]
 		        ];
 
-       return Excel::download(new Export($data,$header), "excel.xlsx");
+
+		        if ($type == 'csv') {
+		        	return Excel::download(new Export($data,$header), "StoreInfo_CSV.csv");
+		        }
+		        if ($type == 'xlsx') {
+		        	return Excel::download(new Export($data,$header), "StoreInfo_Excel.xlsx");
+		        }
+       // return Excel::download(new Export($data,$header), "excel.xlsx");
         
     }
 }
