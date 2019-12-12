@@ -16,7 +16,7 @@ use Maatwebsite\Excel\Concerns\WithBatchInserts;
 use Maatwebsite\Excel\Concerns\WithChunkReading;
 use Maatwebsite\Excel\Concerns\FromArray;
 
-class Export implements FromCollection
+class Export implements FromCollection,WithHeadings
 {
 	use Exportable;
     /**
@@ -24,29 +24,17 @@ class Export implements FromCollection
     */
 
  	private $myArray;
+ 	private $header;
 
- 	public function __construct($myArray){
+ 	public function __construct($myArray,$header){
         $this->myArray = $myArray;
+        $this->header = $header;
     }
 
     public function collection()
     {
     	return collect($this->myArray);
         // return User::all();
-        // $data = [
-			     //        [
-			     //            'name' => 'nahid',
-			     //            'surname' => 'Korop',
-			     //            'email' => 'povilas@laraveldaily.com',
-			     //            'twitter' => '@povilaskorop'
-			     //        ],
-			     //        [
-			     //            'name' => 'likhon',
-			     //            'surname' => 'Otwell',
-			     //            'email' => 'taylor@laravel.com',
-			     //            'twitter' => '@taylorotwell'
-			     //        ]
-			     //    ];
         // return $collection = collect($data);
 
     }
@@ -57,6 +45,7 @@ class Export implements FromCollection
 
     public function headings(): array
     {
+    	return $this->header;
         // return [
         //     'Name',
         //     'Surname',

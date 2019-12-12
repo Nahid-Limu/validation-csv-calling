@@ -12,6 +12,12 @@ class ExportController extends Controller
     public function exportCsvExcel ()
     {
         // return 'okk';
+        $header = [
+            0 => 'Name',
+            1 => 'NickName',
+            2 => 'Email',
+            3 => 'Twitter',
+        ];
         $data = [
 		            [
 		                'name' => 'mr xx',
@@ -27,13 +33,7 @@ class ExportController extends Controller
 		            ]
 		        ];
 
-     //     // $data =Export::collection();
-     //    	// dd(new Export);
-    	// $Export = new Export($data);
-    	// $Export->import($data);
-        // return Excel::download(new Export,'users.xlsx');
-
-       return Excel::download(new Export($data), "excel.xlsx");
+       return Excel::download(new Export($data,$header), "excel.xlsx");
         
     }
 }
